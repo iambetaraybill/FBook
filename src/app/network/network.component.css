@@ -1,0 +1,22 @@
+.grid {
+    display: grid;
+    grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
+    grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
+    gap: var(--bs-gap, 1.5rem);
+}
+
+.grid .g-col-2 {
+    grid-column: auto/span 2;
+}
+
+.grid .g-col-4 {
+    grid-column: auto/span 4;
+}
+
+.grid .g-col-3 {
+    grid-column: auto/span 3;
+}
+
+.grid .g-col-6 {
+    grid-column: auto/span 6;
+}

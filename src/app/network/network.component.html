@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <app-fb-user-info></app-fb-user-info>
+                </div>
+                <div class="col-8 border border-dark">
+                    <div class="row" *ngIf="success">
+                        <div class="col-12">
+                            <div class="p-3 mb-2 bg-success text-white">{{successMessage}}</div>
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let user of users">
+                        <div class="col-12">
+                            <div class="card p-3 mt-3">
+                                <div class="grid text-center">
+                                    <div class="g-col-2" style="border: 1px solid; border-radius:'100%'; width:'50px'; height: '50px';"></div>
+                                    <div class="g-col-6">{{user.firstName}} - {{user.lastName}}</div>
+                                    <div class="g-col-4"><button type="button" class="btn btn-primary" (click)="sendFriendRequest(user._id)">Add friend</button></div>
+                                  </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <app-fb-user-info></app-fb-user-info>
+                </div>
+                <div class="col-8">
+                    <div class="row" *ngIf="success">
+                        <div class="col-12">
+                            <div class="p-3 mb-2 bg-success text-white">{{successMessage}}</div>
+                        </div>
+                    </div>
+                    <form class="row g-3" [formGroup]="postForm" (ngSubmit)="onSubmitPost()" autocomplete="off">
+                        <div class="col-6">
+                            <label for="post" class="form-label">Post</label>
+                            <input type="text" class="form-control" id="post" formControlName="post"
+                                [ngClass]="{ 'is-invalid': submitted && f['post'].errors }">
+                            <div *ngIf="submitted && f['post'].errors" class="invalid-feedback">
+                                <div *ngIf="f['post'].errors['required']">Post is required</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary" type="submit">Post</button>
+                        </div>
+                    </form>
+                    <!-- listing posts-->
+                    <div class="row pt-5">
+                        <div class="col-6">
+                            <div class="card mt-3 p-3" *ngFor="let list of posts">
+                                {{list.post}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

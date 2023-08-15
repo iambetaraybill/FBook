@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">Fbook</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div *ngIf="authenticated;then loggedInContent else nonLoggedInContent"></div>
+            <ng-template #loggedInContent>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="users" routerLinkActive="active" ariaCurrentWhenActive="page">Users</a>
+                </li>               
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="network" routerLinkActive="active" ariaCurrentWhenActive="page">Network</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="friends" routerLinkActive="active" ariaCurrentWhenActive="page">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="settings" routerLinkActive="active" ariaCurrentWhenActive="page">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logOut()">Logout</a>
+                </li>
+            </ng-template>
+            <ng-template #nonLoggedInContent>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+                </li>
+            </ng-template>
+              
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="container pt-3">
+  <div class="row">
+      <div class="col-12">
+      <h1>{{ title }}</h1>
+      <div *ngIf="!authenticated && logOutMessage" class="p-3 mb-2 bg-success text-white">{{logOutMessage}}</div>
+      <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

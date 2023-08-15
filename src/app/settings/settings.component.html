@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">Your profile settings</div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <tr>
+                            <td>{{currentUser.firstName}}</td>
+                            <td>{{currentUser.lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{currentUser.gender}}</td>
+                            <td>{{currentUser.dob | date: 'dd/MM/yyyy'}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{currentUser.email}}</td>
+                            <td>Active: {{currentUser.isActive}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a [routerLink]="['/forgot-password']">Forgot password?</a>
+        </div>
+    </div>
+</div>
